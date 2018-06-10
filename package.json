@@ -1,0 +1,15 @@
+{
+  "name": "demo-pexels-shotstack",
+  "version": "1.0.0",
+  "description": "Shotstack demo using Pixels Video API and Serverless",
+  "main": "index.js",
+  "dependencies": {
+    "pexels-api-wrapper": "^1.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shotstack",
+  "license": "ISC"
+}
