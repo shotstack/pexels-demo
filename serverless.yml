@@ -13,6 +13,10 @@
 
 service: demo-pexels-shotstack
 
+custom:
+  dotenv:
+    see: https://github.com/infrontlabs/serverless-dotenv-plugin/issues/5
+
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
@@ -46,6 +50,8 @@ provider:
 # you can define service wide environment variables here
 #  environment:
 #    variable1: value1
+  environment:
+    PEXELS_API_KEY: ${env:PEXELS_API_KEY}
 
 # you can add packaging information here
 #package:
@@ -110,3 +116,6 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+plugins:
+  - serverless-dotenv-plugin

@@ -6,7 +6,9 @@
   "dependencies": {
     "pexels-api-wrapper": "^1.0.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^1.1.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
