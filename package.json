@@ -4,6 +4,7 @@
   "description": "Shotstack demo using Pixels Video API and Serverless",
   "main": "index.js",
   "dependencies": {
+    "joi": "^13.4.0",
     "pexels-api-wrapper": "^1.0.9"
   },
   "devDependencies": {
