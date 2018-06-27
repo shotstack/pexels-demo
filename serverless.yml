@@ -66,6 +66,7 @@ functions:
   shotstack:
     handler: src/handler/shotstack/handler.submit
     description: Demo - Pexels video search and render
+    timeout: 15
     events:
       - http:
           path: shotstack

@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "joi": "^13.4.0",
-    "pexels-api-wrapper": "^1.0.9"
+    "pexels-api-wrapper": "^1.1.1",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "serverless-dotenv-plugin": "^1.1.3"

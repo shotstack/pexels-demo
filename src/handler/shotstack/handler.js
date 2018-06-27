@@ -2,7 +2,6 @@
 
 const response = require('../../helper/response');
 const shotstack = require('./lib/shotstack');
-    /*api = new APIGateway({ region: process.env.SLS_REGION });*/
 
 module.exports.submit = (event, context, callback) => {
     const data = JSON.parse(event.body);
