@@ -26,10 +26,15 @@ module.exports.submit = (data) => {
             return reject(valid.error);
         }
 
+        const minClips = 4;
         const maxClips = 8;
         const clipLength = 2;
 
         pexelsClient.searchVideos(data.search, maxClips, 1).then(function(pexels) {
+            if (pexels.total_results < minClips) {
+                throw "Not enough results to create video";
+            }
+
             let tracks = [];
             let videos = [];
 
@@ -56,6 +61,12 @@ module.exports.submit = (data) => {
                     in: 1,
                     out: clipLength + 1
                 };
+
+                if (index === (maxClips - 1)) {
+                    videos[index].transition = {
+                        out: "fadeOut"
+                    }
+                }
             }
 
             tracks[0] = {
@@ -86,7 +97,7 @@ module.exports.submit = (data) => {
                 output: output
             };
 
-            //console.log(JSON.stringify(edit, null, 4));
+            console.log(JSON.stringify(edit, null, 4));
             //return resolve(pexels);
 
             request({
