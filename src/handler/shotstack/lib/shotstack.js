@@ -97,7 +97,7 @@ module.exports.submit = (data) => {
                 output: output
             };
 
-            console.log(JSON.stringify(edit, null, 4));
+            //console.log(JSON.stringify(edit, null, 4));
             //return resolve(pexels);
 
             request({
