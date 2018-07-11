@@ -72,6 +72,15 @@ functions:
           path: shotstack
           method: post
           cors: true
+  status:
+    handler: src/handler/shotstack/handler.status
+    description: Demo - Pexels video status check
+    timeout: 10
+    events:
+      - http:
+          path: shotstack/{id}
+          method: get
+          cors: true
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+    <div class="container content">
+        <div class="row">
+            <div class="col">
+                <form class="jumbotron" method="post">
+                    <div class="form-group">
+                        <label for="search" class="display-4">Make a video about</label>
+                        <input name="search" type="text" class="form-control form-control-lg" id="search" placeholder="cats, mountains, waves, people, buildings, sport" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Add a Title</label>
+                        <input name="title" type="text" class="form-control" id="title" placeholder="My Movie" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="soundtrack">Choose a Soundtrack</label>
+                        <select name="soundtrack" id="soundtrack" class="custom-select" required>
+                            <option selected>Choose...</option>
+                            <option value="disco">Disco</option>
+                            <option value="freeflow">Freeflow</option>
+                            <option value="melodic">Melodic</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Video</button>
+                </form>
+            </div>
+            <div class="col">
+                Video
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -114,11 +114,48 @@ module.exports.submit = (data) => {
                     return reject(error);
                 }
 
-                return resolve(pexels);
+                return resolve(body.response);
             });
         }).catch(function(error) {
             console.log(error);
             return reject(error);
+        });
+    });
+};
+
+module.exports.status = (id) => {
+    const schema = {
+        id: Joi.string().guid({
+            version: [
+                'uuidv4',
+                'uuidv5'
+            ]
+        })
+    };
+
+    const valid = Joi.validate({
+        id: id
+    }, schema);
+
+    return new Promise((resolve, reject) => {
+        if (valid.error) {
+            return reject(valid.error);
+        }
+
+        request({
+            url: shotstackUrl + 'render/' + id,
+            method: 'GET',
+            headers: {
+                'x-api-key': shotstackApiKey
+            },
+            json: true
+        }, function (error, response, body) {
+            if (error) {
+                console.log(error);
+                return reject(error);
+            }
+
+            return resolve(body.response);
         });
     });
 };
