@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.3.21/plyr.css">
     <link rel="stylesheet" href="styles.css">
 
@@ -39,6 +41,16 @@
                 </form>
             </div>
             <div class="col">
+                <div id="status" class="row h-100 justify-content-center align-items-center d-none">
+                    <div class="col-6 text-center">
+                        <i class="fas fa-2x"></i>
+                        <p></p>
+                        <div class="progress" style="height: 2px;">
+                            <div style="width: 0;" class="progress-bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Rendering may take up to 2 minutes</small>
+                    </div>
+                </div>
                 <video id="player" playsinline controls></video>
             </div>
         </div>

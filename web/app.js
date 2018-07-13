@@ -1,5 +1,8 @@
 var apiEndpoint = 'https://dcsgqlt4gd.execute-api.ap-southeast-2.amazonaws.com/dev/shotstack';
 var shotstackOutputUrl = 'https://s3-ap-southeast-2.amazonaws.com/shotstack-dev-output/';
+var progress = 0;
+var progressIncrement = 10;
+var pollIntervalSeconds = 10;
 
 /**
  * Initialise and play the video
@@ -19,7 +22,9 @@ function initialiseVideo(src) {
         ]
     };
 
+    $('#status').removeClass('d-flex').addClass('d-none');
     $('#player').show();
+
     player.play();
 }
 
@@ -30,18 +35,44 @@ function initialiseVideo(src) {
  */
 function pollVideoStatus(id) {
     $.get(apiEndpoint + '/' + id, function(response) {
-        console.log(response.data);
+        updateStatus(response.data.status);
         if (!(response.data.status === 'done' || response.data.status === 'failed')) {
             setTimeout(function () {
                 console.log(id);
                 pollVideoStatus(id);
-            }, 10000);
+            }, pollIntervalSeconds * 1000);
         } else if (response.data.status === 'failed') {
             console.log('render failed');
         } else {
             initialiseVideo(shotstackOutputUrl + response.data.owner + '/' + response.data.id + '.mp4');
         }
     });
+}
+
+function updateStatus(status) {
+    if (progress <= 90) {
+        progress += progressIncrement;
+    }
+
+    if (status === 'queued') {
+        $('#status .fas').attr('class', 'fas fa-history fa-2x');
+        $('#status p').text('QUEUED');
+    } else if (status === 'fetching') {
+        $('#status .fas').attr('class', 'fas fa-cloud-download-alt fa-2x');
+        $('#status p').text('DOWNLOADING ASSETS');
+    } else if (status === 'rendering') {
+        $('#status .fas').attr('class', 'fas fa-server fa-2x');
+        $('#status p').text('RENDERING VIDEO');
+    } else if (status === 'done') {
+        $('#status .fas').attr('class', 'fas fa-check-circle fa-2x');
+        $('#status p').text('READY');
+        progress = 100;
+    } else {
+        $('#status .fas').attr('class', 'fas fa-exclamation-triangle fa-2x');
+        $('#status p').text('SOMETHING WENT WRONG');
+    }
+
+    $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
 }
 
 /**
@@ -62,10 +93,10 @@ function submitVideoEdit() {
         crossDomain: true,
         contentType: 'application/json'
     }).done(function(response) {
-        console.log(response.data);
         if (response.status !== 'success') {
             console.log('handle error');
         } else {
+            $('#status').removeClass('d-none').addClass('d-flex');
             pollVideoStatus(response.data.id);
         }
     }).fail(function(data) {

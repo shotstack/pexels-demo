@@ -12,3 +12,17 @@
 #player {
     display: none;
 }
+
+#status .fas {
+    margin-bottom: 8px;
+}
+
+#status small {
+    margin-top: 10px;
+    color: #777777;
+}
+
+.progress {
+    height: 2px;
+    margin-bottom: 14px;
+}
