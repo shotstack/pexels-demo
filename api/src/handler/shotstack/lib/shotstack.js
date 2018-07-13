@@ -11,8 +11,8 @@ const shotstackAssetsUrl = process.env.SHOTSTACK_ASSETS_URL;
 module.exports.submit = (data) => {
     const schema = {
         search: Joi.string().regex(/^[a-zA-Z0-9 ]*$/).min(2).max(30).required(),
+        title: Joi.string().regex(/^[a-zA-Z0-9 ]*$/).min(2).max(30).required(),
         soundtrack: Joi.string().valid(['disco', 'freeflow', 'melodic']).required(),
-        title: Joi.string().regex(/^[a-zA-Z0-9 ]*$/).min(2).max(30).required()
     };
 
     const valid = Joi.validate({
@@ -32,7 +32,7 @@ module.exports.submit = (data) => {
 
         pexelsClient.searchVideos(data.search, maxClips, 1).then(function(pexels) {
             if (pexels.total_results < minClips) {
-                throw "Not enough results to create video";
+                throw "There are not enough clips for '" + data.search + "' to create a video";
             }
 
             let tracks = [];

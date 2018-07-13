@@ -19,16 +19,15 @@
         <div class="row">
             <div class="col">
                 <form class="jumbotron" method="post">
-                    <div class="form-group">
+                    <div class="form-group" id="search-group">
                         <label for="search" class="display-4">Make a video about</label>
-                        <input name="search" type="text" class="form-control form-control-lg" id="search" placeholder="cats, mountains, waves, people, buildings, sport" required>
+                        <input name="search" type="text" class="form-control form-control-lg" id="search" placeholder="cats, mountains, waves, people, buildings, sport" maxlength="30" required>
                     </div>
-
-                    <div class="form-group">
+                    <div class="form-group" id="title-group">
                         <label for="title">Add a Title</label>
-                        <input name="title" type="text" class="form-control" id="title" placeholder="My Movie" required>
+                        <input name="title" type="text" class="form-control" id="title" placeholder="My Movie" maxlength="30" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="soundtrack-group">
                         <label for="soundtrack">Choose a Soundtrack</label>
                         <select name="soundtrack" id="soundtrack" class="custom-select" required>
                             <option selected>Choose...</option>
@@ -37,6 +36,7 @@
                             <option value="melodic">Melodic</option>
                         </select>
                     </div>
+                    <div class="alert alert-danger d-none" role="alert" id="errors"></div>
                     <button type="submit" class="btn btn-primary">Create Video</button>
                 </form>
             </div>
