@@ -29,6 +29,7 @@ module.exports.submit = (data) => {
         const minClips = 4;
         const maxClips = 8;
         const clipLength = 2;
+        const videoStart = 4;
 
         pexelsClient.searchVideos(data.search, maxClips, 1).then(function(pexels) {
             if (pexels.total_results < minClips) {
@@ -57,10 +58,16 @@ module.exports.submit = (data) => {
                 videos[index] = {
                     type: "video",
                     src: video.video_files[0].link,
-                    start: index * clipLength,
+                    start: videoStart + (index * clipLength),
                     in: 1,
                     out: clipLength + 1
                 };
+
+                if (index === 0) {
+                    videos[index].transition = {
+                        in: "fadeIn"
+                    }
+                }
 
                 if (index === (maxClips - 1)) {
                     videos[index].transition = {
@@ -89,7 +96,7 @@ module.exports.submit = (data) => {
 
             let output = {
                 format: "mp4",
-                resolution: "hd"
+                resolution: "sd"
             };
 
             let edit = {
