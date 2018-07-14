@@ -43,6 +43,7 @@ function pollVideoStatus(id) {
             updateStatus(response.data.status);
         } else {
             initialiseVideo(shotstackOutputUrl + response.data.owner + '/' + response.data.id + '.mp4');
+            initialiseJson(response.data.data);
         }
     });
 }
@@ -57,7 +58,10 @@ function updateStatus(status) {
         progress += progressIncrement;
     }
 
-    if (status === 'queued') {
+    if (status === 'submitted') {
+        $('#status .fas').attr('class', 'fas fa-spinner fa-spin fa-2x');
+        $('#status p').text('SUBMITTED');
+    } else if (status === 'queued') {
         $('#status .fas').attr('class', 'fas fa-history fa-2x');
         $('#status p').text('QUEUED');
     } else if (status === 'fetching') {
@@ -73,6 +77,7 @@ function updateStatus(status) {
     } else {
         $('#status .fas').attr('class', 'fas fa-exclamation-triangle fa-2x');
         $('#status p').text('SOMETHING WENT WRONG');
+        $('#submit-video').prop('disabled', false);
     }
 
     $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
@@ -84,7 +89,6 @@ function updateStatus(status) {
  * @param error
  */
 function displayError(error) {
-
     if (error.status === 400) {
         var response = error.responseJSON;
 
@@ -128,6 +132,11 @@ function resetErrors() {
  * Submit the form with data to create a Shotstack edit
  */
 function submitVideoEdit() {
+    $('#submit-video').prop('disabled', true);
+    $('#instructions').hide();
+    $('#status').removeClass('d-none').addClass('d-flex');
+    updateStatus('submitted');
+
     var formData = {
         'search': $('#search').val(),
         'title': $('#title').val(),
@@ -144,13 +153,60 @@ function submitVideoEdit() {
     }).done(function(response) {
         if (response.status !== 'success') {
             displayError(response.message);
+            $('#submit-video').prop('disabled', false);
         } else {
-            $('#status').removeClass('d-none').addClass('d-flex');
             pollVideoStatus(response.data.id);
         }
     }).fail(function(error) {
         displayError(error);
+        $('#submit-video').prop('disabled', false);
     });
+}
+
+/**
+ * Colour and style JSON
+ *
+ * @param match
+ * @param pIndent
+ * @param pKey
+ * @param pVal
+ * @param pEnd
+ * @returns {*}
+ */
+function styleJson(match, pIndent, pKey, pVal, pEnd) {
+    var key = '<span class=json-key>';
+    var val = '<span class=json-value>';
+    var str = '<span class=json-string>';
+    var r = pIndent || '';
+    if (pKey)
+        r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
+    if (pVal)
+        r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+    return r + (pEnd || '');
+}
+
+/**
+ * Pretty print JSON object on screen
+ *
+ * @param obj
+ * @returns {string}
+ */
+function prettyPrintJson(obj) {
+    var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
+    return JSON.stringify(obj, null, 3)
+        .replace(/&/g, '&amp;').replace(/\\"/g, '&quot;')
+        .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(jsonLine, styleJson);
+}
+
+/**
+ * Show the JSON display button
+ *
+ * @param json
+ */
+function initialiseJson(json) {
+    $('.json-container').html(prettyPrintJson(json));
+    $('#json').show();
 }
 
 $(document).ready(function() {

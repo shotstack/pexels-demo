@@ -4,12 +4,18 @@
 .content .jumbotron {
     padding-top: 2rem;
     padding-bottom: 2rem;
+    margin-bottom: 0;
 }
 .display-4 {
     font-size: 2.5rem;
 }
 
-#player {
+.video-container {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#player, #json {
     display: none;
 }
 
@@ -25,4 +31,17 @@
 .progress {
     height: 2px;
     margin-bottom: 14px;
+}
+
+#json {
+    margin-top: 16px;
+}
+.json-key {
+    color: brown;
+}
+.json-value {
+    color: navy;
+}
+.json-string {
+    color: olive;
 }

@@ -17,8 +17,8 @@
 <body>
     <div class="container content">
         <div class="row">
-            <div class="col">
-                <form class="jumbotron" method="post">
+            <div class="col-5 h-100">
+                <form class="jumbotron h-100" method="post">
                     <div class="form-group" id="search-group">
                         <label for="search" class="display-4">Make a video about</label>
                         <input name="search" type="text" class="form-control form-control-lg" id="search" placeholder="cats, mountains, waves, people, buildings, sport" maxlength="30" required>
@@ -37,10 +37,15 @@
                         </select>
                     </div>
                     <div class="alert alert-danger d-none" role="alert" id="errors"></div>
-                    <button type="submit" class="btn btn-primary">Create Video</button>
+                    <button type="submit" class="btn btn-primary" id="submit-video">Create Video</button>
                 </form>
             </div>
-            <div class="col">
+            <div class="col-7 card video-container">
+                <div id="instructions" class="row h-100 justify-content-center align-items-center">
+                    <div class="col-6 text-center">
+                        <p>Your video will display here</p>
+                    </div>
+                </div>
                 <div id="status" class="row h-100 justify-content-center align-items-center d-none">
                     <div class="col-6 text-center">
                         <i class="fas fa-2x"></i>
@@ -48,10 +53,22 @@
                         <div class="progress" style="height: 2px;">
                             <div style="width: 0;" class="progress-bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <small>Rendering may take up to 2 minutes</small>
+                        <small>Hold tight, rendering may take a minute...</small>
                     </div>
                 </div>
                 <video id="player" playsinline controls></video>
+                <div id="json" class="row">
+                    <div class="col">
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#jsonExpand" role="button" aria-expanded="false" aria-controls="jsonExpand">
+                                Show JSON
+                            </a>
+                        </p>
+                        <div class="collapse" id="jsonExpand">
+                            <div class="card card-body"><pre><code class="json-container"></code></pre></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
