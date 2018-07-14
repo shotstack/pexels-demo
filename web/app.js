@@ -4,6 +4,7 @@ var progress = 0;
 var progressIncrement = 10;
 var pollIntervalSeconds = 10;
 var unknownError = 'An unknown error has occurred. Dispatching minions...';
+var player;
 
 /**
  * Initialise and play the video
@@ -11,7 +12,7 @@ var unknownError = 'An unknown error has occurred. Dispatching minions...';
  * @param {String} src  the video URL
  */
 function initialiseVideo(src) {
-    var player = new Plyr('#player');
+    player = new Plyr('#player');
 
     player.source = {
         type: 'video',
@@ -141,6 +142,21 @@ function resetForm() {
 }
 
 /**
+ * Reset and delete video
+ */
+function resetVideo() {
+    if (player) {
+        player.destroy();
+        player = undefined;
+    }
+
+    progress = 0;
+
+    $('.json-container').html('');
+    $('#json').hide();
+}
+
+/**
  * Submit the form with data to create a Shotstack edit
  */
 function submitVideoEdit() {
@@ -224,6 +240,7 @@ function initialiseJson(json) {
 $(document).ready(function() {
     $('form').submit(function(event) {
         resetErrors();
+        resetVideo();
         submitVideoEdit();
 
         event.preventDefault();
