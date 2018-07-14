@@ -79,6 +79,7 @@ function updateStatus(status) {
         $('#status .fas').attr('class', 'fas fa-exclamation-triangle fa-2x');
         $('#status p').text('SOMETHING WENT WRONG');
         $('#submit-video').prop('disabled', false);
+        progress = 0;
     }
 
     $('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
@@ -90,6 +91,8 @@ function updateStatus(status) {
  * @param error
  */
 function displayError(error) {
+    updateStatus(null);
+
     if (error.status === 400) {
         var response = error.responseJSON;
 
@@ -124,7 +127,7 @@ function displayError(error) {
  * Reset errors
  */
 function resetErrors() {
-    $('input, label').removeClass('text-danger is-invalid');
+    $('input, label, select').removeClass('text-danger is-invalid');
     $('.invalid-feedback').remove();
     $('#errors').text('').removeClass('d-block').addClass('d-hide');
 }
