@@ -44,6 +44,7 @@ function pollVideoStatus(id) {
         } else {
             initialiseVideo(shotstackOutputUrl + response.data.owner + '/' + response.data.id + '.mp4');
             initialiseJson(response.data.data);
+            resetForm();
         }
     });
 }
@@ -126,6 +127,14 @@ function resetErrors() {
     $('input, label').removeClass('text-danger is-invalid');
     $('.invalid-feedback').remove();
     $('#errors').text('').removeClass('d-block').addClass('d-hide');
+}
+
+/**
+ * Reset form
+ */
+function resetForm() {
+    $('form').trigger("reset");
+    $('#submit-video').prop('disabled', false);
 }
 
 /**
