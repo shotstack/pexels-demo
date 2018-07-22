@@ -45,3 +45,20 @@
 .json-string {
     color: olive;
 }
+
+header {
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    font-weight: bold;
+    background-color: #00c4a7;
+    border-color: #00ba9d;
+}
+
+.btn-primary:hover {
+    background-color: #00a88d;
+    border-color: #00a085;
+}
+
+
