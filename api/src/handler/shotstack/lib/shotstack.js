@@ -88,7 +88,7 @@ module.exports.submit = (data) => {
 
             let timeline = {
                 soundtrack: {
-                    src: shotstackAssetsUrl + data.soundtrack + ".mp3"
+                    src: shotstackAssetsUrl + "music/" + data.soundtrack + ".mp3"
                 },
                 background: "#000000",
                 tracks: tracks,

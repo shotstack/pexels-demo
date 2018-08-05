@@ -13,10 +13,6 @@
 
 service: demo-pexels-shotstack
 
-custom:
-  dotenv:
-    see: https://github.com/infrontlabs/serverless-dotenv-plugin/issues/5
-
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
@@ -24,7 +20,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: demo
   region: ap-southeast-2
 
 # you can overwrite defaults here
