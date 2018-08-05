@@ -72,6 +72,9 @@ function updateStatus(status) {
     } else if (status === 'rendering') {
         $('#status .fas').attr('class', 'fas fa-server fa-2x');
         $('#status p').text('RENDERING VIDEO');
+    } else if (status === 'saving') {
+        $('#status .fas').attr('class', 'fas fa-save fa-2x');
+        $('#status p').text('SAVING VIDEO');
     } else if (status === 'done') {
         $('#status .fas').attr('class', 'fas fa-check-circle fa-2x');
         $('#status p').text('READY');
