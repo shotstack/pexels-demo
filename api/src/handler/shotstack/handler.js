@@ -1,6 +1,6 @@
 'use strict';
 
-const response = require('../../helper/response');
+const response = require('../../shared/response');
 const shotstack = require('./lib/shotstack');
 
 module.exports.submit = (event, context, callback) => {
