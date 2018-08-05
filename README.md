@@ -24,11 +24,11 @@ The project is divided in to a two components:
 
 #### Backend API
 
-The backend API with and endpoint which searches the Pexels API, prepares the edit and posts 
+The backend API with an endpoint which searches the Pexels API, prepares the edit and posts 
 the data to the Shotstack API. A status endpoint is also available which can be polled to 
-return the status of the video.
+return the status of the video as it renders.
 
-The backend API source code is in the api directory.
+The backend API source code is in the _api_ directory.
 
 #### Frontend Web Form & Player
 
@@ -37,7 +37,7 @@ options to create a video. The form uses jQuery to submit the data to the backen
 poll the status of the current render. There is also a video player that is loaded with 
 the final rendered video when ready.
 
-The front end API source code is in the web directory.
+The front end API source code is in the _web_ directory.
 
 ### Installation
 
@@ -67,9 +67,12 @@ To start the API and serve the front end form (from the _api_ directory):
 node src/app.js
 ```
 
-### Deploy Serverless Application
+The visit [http://localhost:3000](http://localhost:3000)
 
-The project has been built as a serverless project using the Serverless Framework 
+
+### Deploy Serverless Application (optional)
+
+The project has been built as a serverless application using the Serverless Framework 
 and AWS Lambda. To understand more about the Serverless Framework and how to set 
 everything up consult the documentation: https://serverless.com/framework/docs/providers/aws/
 
@@ -79,8 +82,7 @@ To deploy to AWS Lambda (from the _api_ directory):
 serverless deploy
 ```
 
-Once the API is deployed set the `var apiEndpoint` variable in app.js to the created
+Once the API is deployed set the `var apiEndpoint` variable in **web/app.js** to the returned
 API Gateway URL.
 
-Run the web index.html file locally or use AWS S3 static hosting to serve the web page
-form.
+Run the **web/index.html** file locally or use AWS S3 static hosting to serve the web page.
