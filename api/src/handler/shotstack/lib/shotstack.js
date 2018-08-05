@@ -55,9 +55,12 @@ module.exports.submit = (data) => {
             };
 
             for (let [index, video] of pexels.videos.entries()) {
+                let videoFiles = video.video_files;
+                let hdVideo = videoFiles.find(file => file.height === 720);
+
                 videos[index] = {
                     type: "video",
-                    src: video.video_files[0].link,
+                    src: hdVideo.link,
                     start: videoStart + (index * clipLength),
                     in: 1,
                     out: clipLength + 1
