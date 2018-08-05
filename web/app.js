@@ -1,4 +1,4 @@
-var apiEndpoint = 'https://3sd8oie0n1.execute-api.ap-southeast-2.amazonaws.com/demo/shotstack';
+var apiEndpoint = 'http://localhost:3000/demo/shotstack'; //https://3sd8oie0n1.execute-api.ap-southeast-2.amazonaws.com/demo/shotstack';
 var shotstackOutputUrl = 'https://s3-ap-southeast-2.amazonaws.com/shotstack-api-stage-output/';
 var progress = 0;
 var progressIncrement = 10;

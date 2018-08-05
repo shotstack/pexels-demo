@@ -9,6 +9,8 @@
     "request": "^2.87.0"
   },
   "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
     "serverless-dotenv-plugin": "^1.1.5"
   },
   "scripts": {

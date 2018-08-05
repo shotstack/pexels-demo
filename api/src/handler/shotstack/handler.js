@@ -8,10 +8,10 @@ module.exports.submit = (event, context, callback) => {
 
     shotstack.submit(data).then((res) => {
         console.log('Success');
-        callback(null, response(201, 'success', 'OK', res));
+        callback(null, response.format(201, 'success', 'OK', res));
     }).catch(function(res) {
         console.log('Fail: ', res);
-        callback(null, response(400, 'fail', 'Bad Request', res));
+        callback(null, response.format(400, 'fail', 'Bad Request', res));
     });
 };
 
@@ -20,9 +20,9 @@ module.exports.status = (event, context, callback) => {
 
     shotstack.status(id).then((res) => {
         console.log('Success');
-        callback(null, response(201, 'success', 'OK', res));
+        callback(null, response.format(201, 'success', 'OK', res));
     }).catch(function(res) {
         console.log('Fail: ', res);
-        callback(null, response(400, 'fail', 'Bad Request', res));
+        callback(null, response.format(400, 'fail', 'Bad Request', res));
     });
 };

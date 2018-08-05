@@ -1,6 +1,23 @@
 'use strict';
 
 /**
+ * Format the response body
+ *
+ * @param {String} status
+ * @param {String} message
+ * @param {Object} data
+ *
+ * @returns {{status: *, message: *, data: *}}
+ */
+module.exports.getBody = (status, message, data) => {
+    return {
+        status: status,
+        message: message,
+        data: data
+    }
+};
+
+/**
  * API Standard response format (JSend - https://labs.omniti.com/labs/jsend)
  *
  * @param {Number} code
@@ -9,16 +26,12 @@
  * @param {Object} data
  * @returns {{statusCode: *, headers: {Access-Control-Allow-Origin: string}, body}}
  */
-module.exports = (code, status, message, data) => {
+module.exports.format = (code, status, message, data) => {
     return {
         statusCode: parseInt(code),
         headers: {
             'Access-Control-Allow-Origin' : '*'
         },
-        body: JSON.stringify({
-            status: status,
-            message: message,
-            data: data
-        })
+        body: JSON.stringify(this.getBody(status, message, data))
     };
 };
