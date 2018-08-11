@@ -56,7 +56,7 @@ module.exports.submit = (data) => {
 
             for (let [index, video] of pexels.videos.entries()) {
                 let videoFiles = video.video_files;
-                let hdVideo = videoFiles.find(file => file.height === 720);
+                let hdVideo = videoFiles.find(file => file.height === 720 || file.height === 1920) || videoFiles[0];
 
                 videos[index] = {
                     type: "video",
@@ -106,9 +106,6 @@ module.exports.submit = (data) => {
                 timeline: timeline,
                 output: output
             };
-
-            //console.log(JSON.stringify(edit, null, 4));
-            //return resolve(pexels);
 
             request({
                 url: shotstackUrl + 'render',
