@@ -8,7 +8,6 @@
 }
 
 .video-container {
-    padding-top: 16px;
     padding-bottom: 16px;
 }
 
@@ -65,4 +64,14 @@ a:hover {
     color: #00a085;
 }
 
+.video-container .jumbotron {
+    background-color: transparent;
+}
 
+#instructions, #status {
+    margin-top: 7rem;
+}
+
+#instructions p {
+    margin: 0;
+}
