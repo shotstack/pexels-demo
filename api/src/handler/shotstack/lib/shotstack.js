@@ -46,11 +46,12 @@ module.exports.submit = (data) => {
                 in: 0,
                 out: 4,
                 transition: {
-                    in: "fadeIn",
-                    out: "fadeOut"
+                    in: "wipeRight",
+                    out: "wipeLeft"
                 },
                 options: {
-                    effect: "minimal"
+                    style: "minimal",
+                    effect: "zoomIn"
                 }
             };
 
