@@ -40,18 +40,17 @@ module.exports.submit = (data) => {
             let videos = [];
 
             let title = {
-                type: "title",
-                src: data.title,
-                start: 0,
-                in: 0,
-                out: 4,
-                transition: {
-                    in: "wipeRight",
-                    out: "wipeLeft"
+                asset: {
+                    type: "title",
+                    text: data.title,
+                    style: "minimal"
                 },
-                options: {
-                    style: "minimal",
-                    effect: "zoomIn"
+                start: 0,
+                length: 4,
+                effect: "zoomIn",
+                transition: {
+                    in: "fade",
+                    out: "fade"
                 }
             };
 
@@ -60,22 +59,24 @@ module.exports.submit = (data) => {
                 let hdVideo = videoFiles.find(file => file.height === 720 || file.height === 1920) || videoFiles[0];
 
                 videos[index] = {
-                    type: "video",
-                    src: hdVideo.link,
+                    asset: {
+                        type: "video",
+                        src: hdVideo.link,
+                        trim: 1
+                    },
                     start: videoStart + (index * clipLength),
-                    in: 1,
-                    out: clipLength + 1
+                    length: clipLength
                 };
 
                 if (index === 0) {
                     videos[index].transition = {
-                        in: "fadeIn"
+                        in: "fade"
                     }
                 }
 
                 if (index === (maxClips - 1)) {
                     videos[index].transition = {
-                        out: "fadeOut"
+                        out: "fade"
                     }
                 }
             }
