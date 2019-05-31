@@ -1,7 +1,7 @@
 'use strict';
 
 const request = require('request');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const PexelsAPI = require('pexels-api-wrapper');
 const pexelsClient = new PexelsAPI(process.env.PEXELS_API_KEY);
 const shotstackUrl = process.env.SHOTSTACK_HOST;
