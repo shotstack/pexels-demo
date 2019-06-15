@@ -21,6 +21,7 @@ functions:
     handler: src/handler/shotstack/handler.submit
     description: Demo - Pexels video search and render
     timeout: 15
+    memorySize: 128
     events:
       - http:
           path: shotstack
@@ -30,6 +31,7 @@ functions:
     handler: src/handler/shotstack/handler.status
     description: Demo - Pexels video status check
     timeout: 10
+    memorySize: 128
     events:
       - http:
           path: shotstack/{id}
