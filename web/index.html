@@ -30,11 +30,31 @@
                 <form class="jumbotron" method="post">
                     <div class="form-group" id="search-group">
                         <label for="search" class="display-4">Make a video about</label>
-                        <input name="search" type="text" class="form-control form-control-lg" id="search" placeholder="cats, mountains, waves, people, buildings, sport" maxlength="30" required>
+                        <input name="search" 
+                               type="text"
+                               pattern="[a-zA-Z0-9 ]+"
+                               oninvalid="setCustomValidity('Only letters and numbers are allowed')"
+                               oninput="setCustomValidity('')"
+                               class="form-control form-control-lg"
+                               id="search"
+                               placeholder="cats mountains people etc..."
+                               maxlength="30"
+                               required
+                        >
                     </div>
                     <div class="form-group" id="title-group">
                         <label for="title">Add a Title</label>
-                        <input name="title" type="text" class="form-control" id="title" placeholder="My Movie" maxlength="30" required>
+                        <input name="title"
+                               type="text"
+                               pattern="[a-zA-Z0-9 ]+"
+                               oninvalid="setCustomValidity('Only letters and numbers are allowed')"
+                               oninput="setCustomValidity('')"
+                               class="form-control"
+                               id="title"
+                               placeholder="My Movie"
+                               maxlength="30"
+                               required
+                        >
                     </div>
                     <div class="form-group" id="soundtrack-group">
                         <label for="soundtrack">Choose a Soundtrack</label>
