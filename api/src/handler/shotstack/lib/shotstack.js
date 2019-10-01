@@ -43,7 +43,8 @@ module.exports.submit = (data) => {
                 asset: {
                     type: "title",
                     text: data.title,
-                    style: "minimal"
+                    style: "minimal",
+                    size: "small"
                 },
                 start: 0,
                 length: 4,
@@ -93,7 +94,8 @@ module.exports.submit = (data) => {
 
             let timeline = {
                 soundtrack: {
-                    src: shotstackAssetsUrl + "music/" + data.soundtrack + ".mp3"
+                    src: shotstackAssetsUrl + "music/" + data.soundtrack + ".mp3",
+                    effect: "fadeOut"
                 },
                 background: "#000000",
                 tracks: tracks,
