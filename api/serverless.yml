@@ -2,7 +2,7 @@ service: demo-pexels-shotstack
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   stage: demo
   region: ap-southeast-2
   environment:
