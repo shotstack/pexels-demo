@@ -64,6 +64,7 @@ SHOTSTACK_API_KEY=replace_with_your_shotstack_key
 To start the API and serve the front end form (from the _api_ directory):
 
 ```bash
+cd api
 node src/app.js
 ```
 
