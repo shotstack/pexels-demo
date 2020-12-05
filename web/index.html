@@ -10,19 +10,30 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.3.21/plyr.css">
+    <link rel="stylesheet" href="https://shotstack.io/assets/css/main.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- GA -->
 
     <title>Shotstack Pexels Video Maker Demo</title>
+    <meta name="description" content="Search the Pexels stock footage video library and the Shotstack API will automatically compile an edit with music and a title."/>
 </head>
 <body>
     <div class="container content mt-4 mb-4">
         <div class="row">
             <div class="col">
                 <header>
-                    <a href="http://shotstack.io">
+                    <a href="https://shotstack.io">
                         <img src="data:image/png;base64,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">
                      </a>
                 </header>
+            </div>
+        </div>
+        <div class="row mt-4 mb-5 row-header">
+            <div class="col-sm">
+                <h1>Pexels Video Maker</h1>
+                <h2 class="font-weight-light font-italic text-center">
+                    Edit a video by searching the Pexels video library
+                </h2>
             </div>
         </div>
         <div class="row">
@@ -102,6 +113,23 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-8 offset-md-2 my-5">
+                <h3 class="font-weight-normal">About the Pexels video maker demo</h3>
+                <p>
+                    This demo integrates with the <a href="https://www.pexels.com/api/">Pexels API</a> to search their
+                    video library. The application loops through the results and chooses the first 8 videos to include
+                    in the edit. A title and soundtrack are also prepared. Finally the edit is sent to the 
+                    <a href="https://shotstack.io">Shotstack API</a> for rendering.
+                </p>
+                <p>
+                    This demo is available as an 
+                    <a href="https://github.com/shotstack/pexels-demo" target="_blank">open source project</a> so you 
+                    can see exactly how it works and adapt or re-use it as the starting point for your own cloud video
+                    editing application.
+                </p>
             </div>
         </div>
     </div>
