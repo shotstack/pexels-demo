@@ -7,7 +7,7 @@ An HTML web form allows the user to search the Pexels library via the Pexels API
 a soundtrack and add a title. A video is the created by the Shotstack API using the video
 clips returned by the Pexels search and the track and title entered by the user.
 
-View the live demo at: http://shotstack.io/demo/pexels/
+View the live demo at: https://shotstack.io/demo/pexels/
 
 The demo is built using Node JS and can be used with either Express Framework or deployed 
 as a serverless projects using AWS Lambda and API Gateway.
@@ -16,7 +16,7 @@ as a serverless projects using AWS Lambda and API Gateway.
 
 - Node 8.10+
 - Pexels API key: https://www.pexels.com/api
-- Shotstack API key: http://shotstack.io
+- Shotstack API key: https://dashboard.shotstack.io/register
 
 ### Project Structure
 
