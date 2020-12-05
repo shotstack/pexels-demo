@@ -46,7 +46,6 @@ Install node module dependencies:
 ```bash
 cd api
 npm install
-
 ```
 
 ### Configuration
@@ -65,7 +64,7 @@ To start the API and serve the front end form (from the _api_ directory):
 
 ```bash
 cd api
-node src/app.js
+npm run start
 ```
 
 The visit [http://localhost:3000](http://localhost:3000)
@@ -80,7 +79,8 @@ everything up consult the documentation: https://serverless.com/framework/docs/p
 To deploy to AWS Lambda (from the _api_ directory):
 
 ```bash
-serverless deploy
+cd api
+npm run serverless
 ```
 
 Once the API is deployed set the `var apiEndpoint` variable in **web/app.js** to the returned
