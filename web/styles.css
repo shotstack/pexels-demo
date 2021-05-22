@@ -75,3 +75,7 @@ a:hover {
 #instructions p {
     margin: 0;
 }
+
+label {
+    font-weight: 600;
+}
