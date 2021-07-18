@@ -2,9 +2,13 @@ service: demo-pexels-shotstack
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: demo
   region: ap-southeast-2
+  logRetentionInDays: 30
+  deploymentBucket:
+    name: shotstack-serverless-deploys-${self:provider.region}
+    blockPublicAccess: true
   environment:
     PEXELS_API_KEY: ${env:PEXELS_API_KEY}
 
