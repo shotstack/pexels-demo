@@ -1,4 +1,4 @@
-var apiEndpoint = 'http://localhost:3000/demo/shotstack'; // https://3sd8oie0n1.execute-api.ap-southeast-2.amazonaws.com/demo/shotstack';
+var apiUrl = 'http://localhost:3000/demo/shotstack'; // https://3sd8oie0n1.execute-api.ap-southeast-2.amazonaws.com/demo/shotstack';
 var progress = 0;
 var progressIncrement = 10;
 var pollIntervalSeconds = 10;
@@ -33,7 +33,7 @@ function initialiseVideo(src) {
  * @param {String} id  the render job UUID
  */
 function pollVideoStatus(id) {
-    $.get(apiEndpoint + '/' + id, function(response) {
+    $.get(apiUrl + '/' + id, function(response) {
         updateStatus(response.data.status);
         if (!(response.data.status === 'done' || response.data.status === 'failed')) {
             setTimeout(function () {
@@ -175,7 +175,7 @@ function submitVideoEdit() {
 
     $.ajax({
         type: 'POST',
-        url: apiEndpoint,
+        url: apiUrl,
         data: JSON.stringify(formData),
         dataType: 'json',
         crossDomain: true,
