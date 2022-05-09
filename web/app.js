@@ -1,4 +1,4 @@
-var apiUrl = 'http://localhost:3000/demo/shotstack'; // https://3sd8oie0n1.execute-api.ap-southeast-2.amazonaws.com/demo/shotstack';
+var apiUrl = 'http://localhost:3000/demo/shotstack'; // 'https://3sd8oie0n1.execute-api.ap-southeast-2.amazonaws.com/demo/shotstack';
 var progress = 0;
 var progressIncrement = 10;
 var pollIntervalSeconds = 10;
