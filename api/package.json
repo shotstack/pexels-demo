@@ -4,7 +4,7 @@
   "description": "Shotstack demo using Pixels Video API and Serverless",
   "main": "index.js",
   "dependencies": {
-    "@hapi/joi": "^15.0.3",
+    "@hapi/joi": "^15.1.1",
     "pexels-api-wrapper": "^1.1.1",
     "request": "^2.88.0"
   },
