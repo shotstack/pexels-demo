@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "serverless-dotenv-plugin": "^1.2.1"
   },
   "scripts": {
